@@ -30,8 +30,9 @@
   @keyframes sway { from { transform: translateX(-30px) rotate(-50deg); } to { transform: translateX(30px) rotate(50deg); } }
   @keyframes flip { 0% { transform: rotateX(0) rotateY(0); } 50% { transform: rotateX(55deg) rotateY(160deg); } 100% { transform: rotateX(0) rotateY(360deg); } }
 
-  .viewport { position: fixed; inset: 0; display: grid; place-items: center; }
-  .scene { position: relative; width: 380px; height: 820px; transform-origin: center; flex: none; }
+  .viewport { position: fixed; inset: 0; overflow: hidden; }
+  /* always centred in the screen, even when the screen is shorter than the 820px scene */
+  .scene { position: absolute; left: 50%; top: 50%; width: 380px; height: 820px; margin: -410px 0 0 -190px; transform-origin: center; }
 
   .hint { position: absolute; left: 0; right: 0; top: 570px; text-align: center; font: 600 13px Inter, sans-serif; color: #ecc3bd; letter-spacing: .14em; text-transform: uppercase; transition: opacity .4s; animation: pulse 2.2s infinite; }
   .open .hint { opacity: 0; animation: none; }
